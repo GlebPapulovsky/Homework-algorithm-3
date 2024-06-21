@@ -1,5 +1,5 @@
 
-import java.io.*;
+import java.io.IOException;
 import java.util.Arrays;
 
 public class Main {
@@ -11,14 +11,10 @@ public class Main {
             {51, 30, 10, 9, 8, 7, 6, 5, 2, 1}
         };
 
-        //int[] nationalTeam = mergeAll(teams);
-        //System.out.println(Arrays.toString(nationalTeam)); // [51, 45, 31, 31, 30, 24, 22, 20, 18, 17]
-
+        int[] nationalTeam = mergeAll(teams);
+        System.out.println(Arrays.toString(nationalTeam)); // [51, 45, 31, 31, 30, 24, 22, 20, 18, 17]
         //test another sorts
-        int[] testMas={1,5,-1,2,1,-4,5,6,7,1,6,-5,4,-3,2,1};
-        System.out.println(Arrays.toString(quickSortAll(testMas)));
-
-
+        
     }
 
     /**
@@ -51,9 +47,9 @@ public class Main {
                 i++;
                 if (i == 10) {
                     break;
-                
-                }  
-                top10[i]=teamB[Bcounter];
+
+                }
+                top10[i] = teamB[Bcounter];
                 Acounter++;
                 Bcounter++;
             }
@@ -62,47 +58,37 @@ public class Main {
     }
 
     //quick sort test
-    public static int[] quickSortAll(int[] team){
+    // public static int[] quickSort(int[] mas, int leftIndex, int rightIndex) {
+    //     //число для пивотирования
+    //     int pivot = mas[(leftIndex + rightIndex) / 2];
+    //     //маркеры(границы)пивотирования
+    //     int leftMarkerIndex = leftIndex;
+    //     int rightMarkerIndex = rightIndex;
 
-        if (team.length==1)return team;
-        if (team.length==0)System.err.println("!!!!!!!!!!!!!!!!!!!");
-        int pi=team.length/2;
-        int border=pivoting(team,pi);
-        quickSortAll( Arrays.copyOfRange(team, 0, border));
-        quickSortAll( Arrays.copyOfRange(team, border, team.length-1));
-        return team;
-    }
-    public static int pivoting(int[] mas,int pi){
-        int left=0;
-        int right=mas.length-1;
-        int pivot=mas[pi];
-        while(true){
-            while(mas[left]<pivot){
-                left++;
-            }
-            while(mas[right]>pivot){
-                right--;
-            }
-            if(left>=right){
-                return left;
-            }
-            mas=swap(mas,left,right);
-            left++;
-            right--;
+    //     while (leftMarkerIndex < rightMarkerIndex) {
+    //         while (mas[leftMarkerIndex] < pivot) {
+    //             leftMarkerIndex++;
+    //         }
+    //         while (mas[rightMarkerIndex] > pivot) {
+    //             rightMarkerIndex--;
+    //         }
+    //         if (leftMarkerIndex <= rightMarkerIndex) {
+    //             int swap = mas[leftMarkerIndex];
+    //             mas[leftMarkerIndex] = mas[rightMarkerIndex];
+    //             mas[rightMarkerIndex] = swap;
+    //             leftMarkerIndex++;
+    //             rightMarkerIndex--;
+    //         }
 
-        }
+    //     }
+    //     if (leftIndex < rightMarkerIndex) {
+    //         quickSort(mas, leftIndex, rightMarkerIndex);
+    //     }
+    //     if (rightIndex > leftMarkerIndex) {
+    //         quickSort(mas, leftMarkerIndex, rightIndex);
+    //     }
+    //     return mas;
 
-           
-    }
-    public static int[] swap(int[]mas,int left, int right){
-        if (right<mas.length && left<mas.length){
-            int swapMemory=mas[left];
-            mas[left]=mas[right];
-            mas[right]=swapMemory;
-        }
-        return  mas;
-
-    }
-    
+    // }
 
 }
