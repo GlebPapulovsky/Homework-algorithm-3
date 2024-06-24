@@ -40,7 +40,7 @@ public class Main {
                 top10[counter] = teamA[aCounter];
                 aCounter++;
                 counter++;
-            } else if (teamA[aCounter] < teamB[bCounter]) {
+            } else  {
                 top10[counter] = teamB[bCounter];
                 bCounter++;
                 counter++;
